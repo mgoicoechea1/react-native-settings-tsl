@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.content.Context;
 import androidx.annotation.Nullable;
 import android.content.BroadcastReceiver;
+import android.os.Build;
 
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -91,14 +92,18 @@ public class RNSettingsModule extends ReactContextBaseJavaModule {
 
   private void registerReceiver(Context reactContext, String filter, BroadcastReceiver receiver) {
     IntentFilter intentFilter = new IntentFilter(filter);
-    reactContext.registerReceiver(receiver, intentFilter);
-  }
+    if (Build.VERSION.SDK_INT >= 34 && reactContext.getApplicationInfo().targetSdkVersion >= 34) {
+        reactContext.registerReceiver(receiver, intentFilter, Context.RECEIVER_EXPORTED);
+    } else {
+        reactContext.registerReceiver(receiver, intentFilter, Context.RECEIVER_NOT_EXPORTED);
+    }
+}
 
-  private void initReceivers() {
+private void initReceivers() {
     registerReceiver(mReactContext, Constants.PROVIDERS_CHANGED, new SettingReceiver(Constants.LOCATION_SETTING, GPS_PROVIDER_EVENT));
     registerReceiver(mReactContext, Constants.AIRPLANE_MODE_CHANGED, new SettingReceiver(Constants.AIRPLANE_MODE_SETTING, AIRPLANE_MODE_EVENT));
     registerReceiver(mReactContext, Constants.CAPTIONING_CHANGED, new SettingReceiver(Constants.CAPTIONING_SETTINGS, CAPTIONING_EVENT));
-  }
+}
 
   private void initListeners() {
     new CaptioningChangeListener(mReactContext);

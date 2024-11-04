@@ -4,7 +4,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.2.2'
+        classpath 'com.android.tools.build:gradle:8.7.2'
     }
 }
 
@@ -15,12 +15,12 @@ def projectVar(name, fallback) {
 }
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    compileSdkVersion 35 // Update to the latest Android SDK version
+    buildToolsVersion "34.0.0" // Update to the latest build tools version
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 30
+        minSdkVersion 24
+        targetSdkVersion 35 // Update to the target SDK version
         versionCode 1
         versionName "1.0"
     }
@@ -36,5 +36,5 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.facebook.react:react-native:0.64.2'
+    implementation 'com.facebook.react:react-native:+'
 }
