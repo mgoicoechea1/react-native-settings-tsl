@@ -13,7 +13,7 @@
   "dependencies": {
     "react": "16.9.0",
     "react-native": "0.62.3",
-    "react-native-settings": "^0.2.3"
+    "react-native-settings-tls": "^0.2.3"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",

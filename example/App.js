@@ -12,7 +12,7 @@ import {
   Platform,
   Alert,
 } from 'react-native';
-import RNSettings from 'react-native-settings';
+import RNSettings from 'react-native-settings-tsl';
 
 const Screen = {
   width: Dimensions.get('window').width,
@@ -164,7 +164,7 @@ export default class example extends Component {
       <Fragment>
         <View style={styles.container}>
           <View style={styles.title}>
-            <Text style={styles.welcome}>react-native-settings</Text>
+            <Text style={styles.welcome}>react-native-settings-tsl</Text>
           </View>
           <SettingRow
             name="Location"

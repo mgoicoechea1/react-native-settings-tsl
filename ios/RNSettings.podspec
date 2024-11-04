@@ -8,12 +8,12 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                   Access iOS and Android device settings from React Native
                    DESC
-  s.homepage     = "https://github.com/rmrs/react-native-settings"
+  s.homepage     = "https://github.com/mgoicoechea1/react-native-settings-tsl"
   s.license      = "MIT"
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
   s.author             = { "author" => "erezrokah@gmail.com" }
   s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/rmrs/react-native-settings.git", :tag => s.version.to_s }
+  s.source       = { :git => "https://github.com/mgoicoechea1/react-native-settings-tsl.git", :tag => s.version.to_s }
   s.source_files  = "RNSettings/**/*.{h,m}"
   s.requires_arc = true
 

@@ -1,4 +1,4 @@
-# react-native-settings
+# react-native-settings-tsl
 
 We created this module to allow us to query for specific device settings.
 For example we wanted to know if the GPS is on/off without using 'react-native'
@@ -16,15 +16,15 @@ a setting or denies/grants a permission.
 Currently we've only added a way to extract the 'location' setting (and airplane mode on Android).
 We will add more in the future based on requirements.
 
-[`react-native example`](https://github.com/rmrs/react-native-settings/tree/master/example) for both Android and iOS.
+[`react-native example`](https://github.com/mgoicoechea1/react-native-settings-tsl/tree/master/example) for both Android and iOS.
 
 ## Getting started
 
-`$ npm install react-native-settings --save`
+`$ npm install react-native-settings-tsl --save`
 
 ### Mostly automatic installation
 
-`$ react-native link react-native-settings`
+`$ react-native link react-native-settings-tsl`
 
 #### Android
 
@@ -60,7 +60,7 @@ public class MainApplication extends Application implements ReactApplication {
 #### iOS
 
 1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
-2. Go to `node_modules` ➜ `react-native-settings` and add `RNSettings.xcodeproj`
+2. Go to `node_modules` ➜ `react-native-settings-tsl` and add `RNSettings.xcodeproj`
 3. In XCode, in the project navigator, select your project. Add `libRNSettings.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
 4. Run your project (`Cmd+R`)<
 
@@ -74,14 +74,14 @@ public class MainApplication extends Application implements ReactApplication {
 2. Append the following lines to `android/settings.gradle`:
 
 ```java
-include ':react-native-settings'
-project(':react-native-settings').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-settings/android')
+include ':react-native-settings-tsl'
+project(':react-native-settings-tsl').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-settings-tsl/android')
 ```
 
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
 
 ```java
-  implementation project(':react-native-settings')
+  implementation project(':react-native-settings-tsl')
 ```
 
 ## Usage
@@ -91,9 +91,9 @@ project(':react-native-settings').projectDir = new File(rootProject.projectDir, 
 #### Getting a setting
 
 ```javascript
-import RNSettings from 'react-native-settings';
+import RNSettings from 'react-native-settings-tsl';
 
-RNSettings.getSetting(RNSettings.LOCATION_SETTING).then(result => {
+RNSettings.getSetting(RNSettings.LOCATION_SETTING).then((result) => {
   if (result == RNSettings.ENABLED) {
     console.log('location is enabled');
   } else {
@@ -105,9 +105,9 @@ RNSettings.getSetting(RNSettings.LOCATION_SETTING).then(result => {
 #### Android only
 
 ```javascript
-import RNSettings from 'react-native-settings';
+import RNSettings from 'react-native-settings-tsl';
 
-RNSettings.getSetting(RNSettings.AIRPLANE_MODE_SETTING).then(result => {
+RNSettings.getSetting(RNSettings.AIRPLANE_MODE_SETTING).then((result) => {
   if (result == RNSettings.ENABLED) {
     console.log('airplane mode is enabled');
   } else {
@@ -115,7 +115,7 @@ RNSettings.getSetting(RNSettings.AIRPLANE_MODE_SETTING).then(result => {
   }
 });
 
-RNSettings.getSetting(RNSettings.CAPTIONING_SETTINGS).then(result => {
+RNSettings.getSetting(RNSettings.CAPTIONING_SETTINGS).then((result) => {
   if (result == RNSettings.ENABLED) {
     console.log('captioning is enabled');
   } else {
@@ -127,10 +127,10 @@ RNSettings.getSetting(RNSettings.CAPTIONING_SETTINGS).then(result => {
 ##### Open settings application in a specific setting
 
 ```javascript
-import RNSettings from 'react-native-settings';
+import RNSettings from 'react-native-settings-tsl';
 
 RNSettings.openSetting(RNSettings.ACTION_LOCATION_SOURCE_SETTINGS).then(
-  result => {
+  (result) => {
     if (result === RNSettings.ENABLED) {
       console.log('location is enabled');
     }
@@ -138,14 +138,14 @@ RNSettings.openSetting(RNSettings.ACTION_LOCATION_SOURCE_SETTINGS).then(
 );
 
 RNSettings.openSetting(RNSettings.ACTION_AIRPLANE_MODE_SETTINGS).then(
-  result => {
+  (result) => {
     if (result === RNSettings.ENABLED) {
       console.log('airplane mode is enabled');
     }
   },
 );
 
-RNSettings.openSetting(RNSettings.ACTION_CAPTIONING_SETTINGS).then(result => {
+RNSettings.openSetting(RNSettings.ACTION_CAPTIONING_SETTINGS).then((result) => {
   if (result === RNSettings.ENABLED) {
     console.log('captioning is enabled');
   }
@@ -155,22 +155,22 @@ RNSettings.openSetting(RNSettings.ACTION_CAPTIONING_SETTINGS).then(result => {
 ##### Listen to setting change event (when applicable)
 
 ```javascript
-import RNSettings from 'react-native-settings';
+import RNSettings from 'react-native-settings-tls';
 import { DeviceEventEmitter } from 'react-native';
 
-_handleGPSProviderEvent = e => {
+_handleGPSProviderEvent = (e) => {
   if (e[RNSettings.LOCATION_SETTING] === RNSettings.DISABLED) {
     console.log('Location was disabled');
   }
 };
 
-_handleAirplaneModeEvent = e => {
+_handleAirplaneModeEvent = (e) => {
   if (e[RNSettings.AIRPLANE_MODE_SETTING] === RNSettings.ENABLED) {
     console.log('airplane mode was enabled');
   }
 };
 
-_handleCaptioningEvent = e => {
+_handleCaptioningEvent = (e) => {
   if (e[RNSettings.CAPTIONING_SETTINGS] === RNSettings.ENABLED) {
     console.log('captioning was enabled');
   }

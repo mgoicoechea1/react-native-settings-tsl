@@ -1,15 +1,15 @@
 {
-  "name": "react-native-settings",
-  "version": "1.0.0",
+  "name": "react-native-settings-tsl",
+  "version": "1.1.0",
   "description": "Access iOS and Android device settings from React Native",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:rmrs/react-native-settings.git"
+    "url": "git@github.com:mgoicoechea1/react-native-settings-tsl.git"
   },
   "keywords": [
     "react-native",
-    "react-native-settings",
+    "react-native-settings-tsl",
     "settings"
   ],
   "author": "Erez Rokah <erezrokah@gmail.com>",
@@ -18,9 +18,9 @@
     "react-native": ">=0.40"
   },
   "bugs": {
-    "url": "https://github.com/rmrs/react-native-settings/issues"
+    "url": "https://github.com/mgoicoechea1/react-native-settings-tsl/issues"
   },
-  "homepage": "https://github.com/rmrs/react-native-settings#readme",
+  "homepage": "https://github.com/mgoicoechea1/react-native-settings-tsl#readme",
   "devDependencies": {
     "@commitlint/cli": "^17.2.0",
     "@commitlint/config-conventional": "^17.2.0",
@@ -33,6 +33,6 @@
     }
   },
   "dependencies": {
-    "react-native-settings": "file:"
+    "react-native-settings-tsl": "file:"
   }
 }
